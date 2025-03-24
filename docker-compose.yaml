@@ -1,0 +1,22 @@
+name: video-stream-node-s3
+
+services:
+  app:
+    image: video-stream-node-s3:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./video:/app/video
+      - ./output:/app/output
+    environment:
+      S3_ENDPOINT: ''
+      S3_ACCESS_KEY_ID: ''
+      S3_SECRET_ACCESS_KEY: ''
+      S3_REGION: ''
+      S3_BUCKET: ''
+
+      VIDEO_STREAM_URL: ''
